@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.robot2;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -10,6 +11,7 @@ import org.firstinspires.ftc.vision.apriltag.AprilTagPoseFtc;
 
 import java.util.List;
 
+@Disabled
 @TeleOp
 public class VisionOpMode2 extends OpMode {
     public ComputerVision2 computerVision;

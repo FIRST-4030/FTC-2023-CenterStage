@@ -1,6 +1,7 @@
 package org.firstinspires.ftc.teamcode.robot2;
 
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
@@ -18,6 +19,7 @@ import org.firstinspires.ftc.teamcode.util.LinearMotorController;
 
 import java.util.HashMap;
 
+@Disabled
 @TeleOp
 public class MecanumTeleOp2 extends OpMode {
     NewMecanumDrive2 drive;

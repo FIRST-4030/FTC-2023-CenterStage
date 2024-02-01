@@ -5,6 +5,7 @@ import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.drive.drives.SampleMecanumDrive;
@@ -16,6 +17,7 @@ import org.firstinspires.ftc.teamcode.general.Pose2dWrapper;
  * The robot maintains the heading it starts at throughout the trajectory
  * However, setting the `endTangent` does affect the spline shape.
  */
+@Disabled
 @Autonomous(group = "drive")
 public class TrajectoryBuilder_SplineToConstantHeading extends LinearOpMode {
     public static double END_X = 40; // in

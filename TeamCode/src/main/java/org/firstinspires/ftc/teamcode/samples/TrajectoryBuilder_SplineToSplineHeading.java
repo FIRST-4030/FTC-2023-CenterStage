@@ -4,6 +4,7 @@ import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.drive.drives.SampleMecanumDrive;
@@ -23,6 +24,7 @@ import org.firstinspires.ftc.teamcode.general.Pose2dWrapper;
  * 🚨  Will cause PathContinuityException's!! 🚨
  * Use splineToSplineHeading() if you are chaining these calls
  */
+@Disabled
 @Autonomous(group = "drive")
 public class TrajectoryBuilder_SplineToSplineHeading extends LinearOpMode {
     public static double END_X = 40; // in

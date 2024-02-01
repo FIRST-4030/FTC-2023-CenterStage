@@ -4,6 +4,7 @@ import com.acmerobotics.dashboard.FtcDashboard;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.drive.drives.SampleMecanumDrive;
@@ -13,6 +14,7 @@ import org.firstinspires.ftc.teamcode.general.Pose2dWrapper;
 /*
  * This is an example of a left/right trajectory mode
  */
+@Disabled
 @Autonomous(group = "drive")
 public class TrajectoryBuilder_LeftRight extends LinearOpMode {
     public static double LEFT = 40; // in
