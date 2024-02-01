@@ -44,9 +44,11 @@ public class MecanumTeleOp extends OpMode {
     ElapsedTime droneTime = new ElapsedTime();
     ElapsedTime droneLimit = new ElapsedTime();
     ElapsedTime headingTimer = new ElapsedTime();
+    ElapsedTime spitOutTimer = new ElapsedTime();
+    boolean spitOut = false;
 
-    double commandedPosition = 0.04;
-    double minArmPos = 0.04;
+    double commandedPosition = 0.02;
+    double minArmPos = 0.02;
     double maxArmPos = 0.265;
     double dpadPower = 0.4;
     boolean useFlipper = false;
@@ -93,6 +95,7 @@ public class MecanumTeleOp extends OpMode {
                 RevHubOrientationOnRobot.LogoFacingDirection.RIGHT,
                 RevHubOrientationOnRobot.UsbFacingDirection.UP
         )));
+        imu.resetYaw();
         //imu.resetDeviceConfigurationForOpMode();
         or = imu.getRobotOrientation(AxesReference.INTRINSIC, AxesOrder.XYZ, AngleUnit.RADIANS);
         globalIMUHeading = or.thirdAngle;
@@ -140,6 +143,7 @@ public class MecanumTeleOp extends OpMode {
 
         //initialize pixel sensor
         pixelSensor = new SecondPixelDetector(hardwareMap);
+        spitOutTimer.reset();
 
 
     }
@@ -249,9 +253,22 @@ public class MecanumTeleOp extends OpMode {
             intakeRunning = !intakeRunning;
         }
         //check if the intake should be running and
-        if((intakeRunning && armServo.getPosition() <= minArmPos + 0.01 && distAverage > 39) || intakePower == -1){
+        if((intakeRunning && armServo.getPosition() <= minArmPos + 0.01 && distAverage > 39) || intakePower == -1) {
             intake.setPower(intakePower);
-        } else {intake.setPower(0); intakeRunning = false;}
+        } else {
+            /*if(distAverage < 39 && !spitOut){
+                spitOut = true;
+                spitOutTimer.reset();
+            }*/
+                intake.setPower(0);
+                intakeRunning = false;
+        }
+        /*if(spitOut && spitOutTimer.milliseconds() < 1000){
+            intake.setPower(-1);
+        } else if (spitOutTimer.milliseconds() > 1000 && pixelSensor.getCurrentDist()){
+            spitOut = false;
+        }*/
+
 
         if(inputHandler.up("D2:RB")){
             intakePower = -1 * intakePower;

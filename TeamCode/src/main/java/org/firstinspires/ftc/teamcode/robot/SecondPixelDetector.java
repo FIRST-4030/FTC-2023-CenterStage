@@ -9,7 +9,7 @@ public class SecondPixelDetector {
     DistanceSensor pixelSensor;
     double distAverage;
     double currentDist;
-    public int arraySize = 7;
+    public int arraySize = 3;
     double[] distArray = new double[arraySize];
     int distIterator = 0;
 
@@ -17,8 +17,7 @@ public class SecondPixelDetector {
         pixelSensor = hardwareMap.get(DistanceSensor.class, "detector");
     }
     public void shiftRunningAverage(int num){
-        arraySize += num;
-        distArray = new double[arraySize];
+
     }
     public double update(){
         currentDist = pixelSensor.getDistance(MM);
@@ -27,7 +26,7 @@ public class SecondPixelDetector {
         for(int i = 0; i < distArray.length; i++){
             distAverage += distArray[i];
         }
-        distAverage /= (arraySize-1);
+        distAverage /= (arraySize);
         return distAverage;
     }
 
